@@ -1,13 +1,11 @@
-import { getGreeting } from '../support/app.po';
+import { getBooks, getAddBookButton } from '../support/app.po';
 
 describe('books', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to books!');
+  it('should display books', () => {
+    getBooks().should((t) => expect(t.length).equal(2));
+    getAddBookButton().click();
+    getBooks().should((t) => expect(t.length).equal(3));
   });
 });
