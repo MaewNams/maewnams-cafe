@@ -226,6 +226,146 @@
         }
       },
       "schematics": {}
+    },
+    "books-back-end": {
+      "root": "apps/books-back-end",
+      "sourceRoot": "apps/books-back-end/src",
+      "projectType": "application",
+      "prefix": "books-back-end",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/books-back-end",
+            "main": "apps/books-back-end/src/main.ts",
+            "tsConfig": "apps/books-back-end/tsconfig.app.json",
+            "assets": ["apps/books-back-end/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/books-back-end/src/environments/environment.ts",
+                  "with": "apps/books-back-end/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "books-back-end:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/books-back-end/tsconfig.app.json",
+              "apps/books-back-end/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/books-back-end/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/books-back-end/jest.config.js",
+            "tsConfig": "apps/books-back-end/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "model-lib": {
+      "root": "libs/model-lib",
+      "sourceRoot": "libs/model-lib/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/model-lib/tsconfig.lib.json",
+              "libs/model-lib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/model-lib/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/model-lib/jest.config.js",
+            "tsConfig": "libs/model-lib/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "book-model-lib": {
+      "projectType": "library",
+      "root": "libs/book-model-lib",
+      "sourceRoot": "libs/book-model-lib/src",
+      "prefix": "maewnams-cafe",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/book-model-lib/tsconfig.lib.json",
+              "libs/book-model-lib/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/book-model-lib/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/book-model-lib/jest.config.js",
+            "tsConfig": "libs/book-model-lib/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/book-model-lib/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "book-back-end-helpers": {
+      "projectType": "library",
+      "root": "libs/book-back-end-helpers",
+      "sourceRoot": "libs/book-back-end-helpers/src",
+      "prefix": "maewnams-cafe",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/book-back-end-helpers/tsconfig.lib.json",
+              "libs/book-back-end-helpers/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/book-back-end-helpers/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/book-back-end-helpers/jest.config.js",
+            "tsConfig": "libs/book-back-end-helpers/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/book-back-end-helpers/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {
