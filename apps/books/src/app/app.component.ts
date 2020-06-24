@@ -1,26 +1,22 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Book } from '@maewnams-cafe/data';
+import { Component, OnInit } from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'maewnams-cafe-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  books: Book[] = [];
+export class AppComponent implements OnInit {
+  title = 'Welcome to MaewnamS Cafe';
+  plainLayout = false;
 
-  constructor(private http: HttpClient) {
-    this.fetch();
-  }
-
-  fetch() {
-    this.http.get<Book[]>('/api/books').subscribe((b) => (this.books = b));
-  }
-
-  addBook() {
-    this.http.post('/api/addBook', {}).subscribe(() => {
-      this.fetch();
+  constructor(router: Router) {
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        console.log('Welcome guest !! We will have member system soon...');
+      }
     });
   }
+
+  ngOnInit() {}
 }

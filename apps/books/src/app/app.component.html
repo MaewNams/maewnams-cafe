@@ -1,4 +1,8 @@
-<h1>Books</h1>
+<!-- <maewnams-cafe-layout-master>
+  <router-outlet></router-outlet>
+</maewnams-cafe-layout-master> -->
+<maewnams-cafe-layout *ngIf="!plainLayout">
+  <router-outlet></router-outlet>
+</maewnams-cafe-layout>
 
-<maewnams-cafe-books [books]="books"></maewnams-cafe-books>
-<button id="add-book" (click)="addBook()">Add book</button>
+<router-outlet *ngIf="plainLayout"></router-outlet>
