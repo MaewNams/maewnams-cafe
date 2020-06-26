@@ -23,7 +23,10 @@
       "@maewnams-cafe/book-back-end-helpers": [
         "libs/book-back-end-helpers/src/index.ts"
       ],
-      "@maewnams-cafe/author-model-lib": ["libs/author-model-lib/src/index.ts"]
+      "@maewnams-cafe/author-model-lib": ["libs/author-model-lib/src/index.ts"],
+      "@maewnams-cafe/registration-model": [
+        "libs/registration-model/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

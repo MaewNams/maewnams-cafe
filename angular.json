@@ -394,6 +394,34 @@
         }
       },
       "schematics": {}
+    },
+    "registration-model": {
+      "projectType": "library",
+      "root": "libs/registration-model",
+      "sourceRoot": "libs/registration-model/src",
+      "prefix": "maewnams-cafe",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/registration-model/tsconfig.lib.json",
+              "libs/registration-model/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/registration-model/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/registration-model/jest.config.js",
+            "tsConfig": "libs/registration-model/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/registration-model/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "cli": {

@@ -1,0 +1,82 @@
+<div>
+  This is my profile !
+  <form [formGroup]="userRegistrationForm" class="profile-form" (ngSubmit)="validateRegistration()">
+
+
+    <div>
+      <label for="ID">
+        My ID is <span class="span-race">{{userRegistrationForm.value.ID}}</span>
+      </label>
+      <div>
+        <input type="text" formControlName="ID">
+      </div>
+    </div>
+    <div>
+      <label for="name">
+        My name is <span class="span-race">{{userRegistrationForm.value.name}}</span>
+      </label>
+      <div>
+        <input type="text" formControlName="name">
+      </div>
+    </div>
+    <label for="name">
+      My email is <span class="span-race">{{userRegistrationForm.value.email}}</span>
+    </label>
+    <div>
+      <input type="text" formControlName="email">
+    </div>
+
+    <label for="name">
+      My phone number is <span class="span-race">{{userRegistrationForm.value.phoneNumber}}</span>
+    </label>
+    <div>
+      <input type="text" formControlName="phoneNumber">
+    </div>
+
+    <div>
+      <mat-radio-group aria-label="Select an option" formControlName="race" class="example-radio-group">
+        <mat-label>I am <span class="span-race">{{userRegistrationForm.value.race}}</span></mat-label>
+
+        <mat-radio-button class="example-radio-button" *ngFor="let race of races" [value]="race">
+          {{race}}
+        </mat-radio-button>
+
+      </mat-radio-group>
+    </div>
+
+    <div>
+      <div>
+        These are pet I have:
+        <span *ngFor="let pet of userRegistrationForm.value.pets" class="span-race">
+          {{pet}}
+        </span>
+      </div>
+
+      <div formArrayName="pets">
+
+        <div *ngFor="let p of petFormArray ">
+          <input type="checkbox" (change)="petChecked(p)" id="p" [checked]="isPet(p)" />
+          <label [attr.fr]=" p"> {{p}} </label>
+        </div>
+      </div>
+
+
+      <div>
+        I'm in love with
+        <select formControlName="food">
+          <option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </option>
+        </select>
+
+      </div>
+    </div>
+    <button type="submit">Submit</button>
+    <button (click)="addPet()">Add</button>
+    <div>
+      {{userRegistrationForm.value | json}}
+    </div>
+  </form>
+
+
+</div>

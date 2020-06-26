@@ -49,6 +49,9 @@
     },
     "author-model": {
       "tags": []
+    },
+    "registration-model": {
+      "tags": []
     }
   }
 }

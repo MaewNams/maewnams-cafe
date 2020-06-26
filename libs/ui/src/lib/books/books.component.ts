@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Book } from '@maewnams-cafe/data';
+import { IBook } from '@maewnams-cafe/book-model-lib';
 
 @Component({
   selector: 'maewnams-cafe-books',
@@ -7,7 +7,7 @@ import { Book } from '@maewnams-cafe/data';
   styleUrls: ['./books.component.css'],
 })
 export class BooksComponent implements OnInit {
-  @Input() books: Book[];
+  @Input() books: IBook[];
 
   constructor() {}
 
