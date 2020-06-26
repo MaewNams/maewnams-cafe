@@ -29,10 +29,11 @@ export const AuthorTypeDefs = gql`
 
   extend type Query {
     getAuthors: [AuthorModel]
+    getAuthorByID(authorID: String): AuthorModel
   }
 
   extend type Mutation {
-    addAuthor(author: AuthorModelInput): AuthorModel
+    addAuthor(authorID: String, name: String): AuthorModel
   }
 `;
 
