@@ -1,0 +1,17 @@
+<div class="book-container">
+  <p>Book Title: {{ book.title }}</p>
+  <p>Author: {{ book.author }}</p>
+  <div>
+    <div>
+      <button [ngClass]="isLike ?'like-button' : 'dislike-button' " (click)="like(book.title)">
+        I like this book!
+      </button>
+      <!-- <input type="checkbox" id="checkboxId" checked="like(book.title)" />
+      <label [attr.for]="checkboxId">I love this book </label> -->
+    </div>
+    <!-- <div>
+      <input type="checkbox" id="checkboxId" />
+      <label [attr.for]="checkboxId">I love this author </label>
+    </div> -->
+  </div>
+</div>

@@ -55,7 +55,11 @@ export const BookTypeDefs = gql`
   type Query {
     getBooks: [BookModel]
     # getTotalBook: HTTPResult
-    # getBookByID(id: String): BookModel
+    getBookByID(bookID: Int): BookModel
+  }
+
+  type Mutation {
+    addBook(bookID: Int, title: String, author: String): BookModel
   }
 `;
 

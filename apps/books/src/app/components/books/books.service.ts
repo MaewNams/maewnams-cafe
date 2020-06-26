@@ -34,4 +34,26 @@ export class BookService {
         catchError((e) => throwError(e))
       );
   };
+
+  addBook(bookID: Number, title: String, author: String): Observable<IBook> {
+    const mutation = gql`
+      mutation addBook($bookID: Int, $title: String, $author: String) {
+        addBook(bookID: $bookID, title: $title, author: $author) {
+          id
+          title
+          author
+        }
+      }
+    `;
+    return this.apollo
+      .mutate({
+        mutation: mutation,
+        variables: {
+          bookID: bookID,
+          title: title,
+          author: author,
+        },
+      })
+      .pipe(map((x) => x.data['addBook']));
+  }
 }

@@ -22,7 +22,8 @@
       "@maewnams-cafe/book-model-lib": ["libs/book-model-lib/src/index.ts"],
       "@maewnams-cafe/book-back-end-helpers": [
         "libs/book-back-end-helpers/src/index.ts"
-      ]
+      ],
+      "@maewnams-cafe/author-model": ["libs/author-model/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

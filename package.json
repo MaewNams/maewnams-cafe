@@ -52,13 +52,16 @@
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
     "graphql-tools": "^4.0.7",
+    "i": "^0.3.6",
     "mixin": "^0.2.0",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
+    "ngx-toastr": "^12.1.0",
     "path": "^0.12.7",
     "pg": "^8.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^6.5.5",
+    "unique-names-generator": "^4.2.0",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {

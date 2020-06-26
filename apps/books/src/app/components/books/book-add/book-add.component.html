@@ -1,0 +1,17 @@
+<form [formGroup]="bookForm" class="add-book-form">
+  <label>
+    Book ID: {{bookID}}
+  </label>
+  <label>
+    Title:
+    <input type="text" formControlName="title">
+  </label>
+  <label>
+    Author:
+    <input type="text" formControlName="author">
+  </label>
+  <p>
+    <button (click)="clickRandomBook()"> Random book</button>
+    <button class="add-book-button" (click)="clickAddBook()"> Add book</button>
+  </p>
+</form>

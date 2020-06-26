@@ -1,4 +1,13 @@
 <div>
-  These are books in MaewnamS cafe
-  <maewnams-cafe-books-books-list></maewnams-cafe-books-books-list>
+  <div>
+    <div class="title">
+      Welcome to MaewnamS cafe's library
+    </div>
+    <div class="add-book-part">
+      <div class="title">I'm gonna add new book!:</div>
+      <maewnams-cafe-books-book-add [bookID]="bookID" (addedBook)="onAddedBook($event)"></maewnams-cafe-books-book-add>
+    </div>
+  </div>
+  <maewnams-cafe-books-books-list [books]="books"></maewnams-cafe-books-books-list>
+
 </div>

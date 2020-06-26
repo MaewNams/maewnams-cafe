@@ -18,17 +18,17 @@
             "tsConfig": "apps/books/tsconfig.app.json",
             "aot": true,
             "assets": ["apps/books/src/favicon.ico", "apps/books/src/assets"],
-            "styles": [
-              "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
-            ],
+            "styles": ["apps/books/src/styles.css"],
             "scripts": []
           },
           "configurations": {
             "production": {
-              "fileReplacements": [{
-                "replace": "apps/books/src/environments/environment.ts",
-                "with": "apps/books/src/environments/environment.prod.ts"
-              }],
+              "fileReplacements": [
+                {
+                  "replace": "apps/books/src/environments/environment.ts",
+                  "with": "apps/books/src/environments/environment.prod.ts"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -37,7 +37,8 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
-              "budgets": [{
+              "budgets": [
+                {
                   "type": "initial",
                   "maximumWarning": "2mb",
                   "maximumError": "5mb"
@@ -137,10 +138,12 @@
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
-              "fileReplacements": [{
-                "replace": "apps/api/src/environments/environment.ts",
-                "with": "apps/api/src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "apps/api/src/environments/environment.ts",
+                  "with": "apps/api/src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -244,10 +247,12 @@
               "optimization": true,
               "extractLicenses": true,
               "inspect": false,
-              "fileReplacements": [{
-                "replace": "apps/books-back-end/src/environments/environment.ts",
-                "with": "apps/books-back-end/src/environments/environment.prod.ts"
-              }]
+              "fileReplacements": [
+                {
+                  "replace": "apps/books-back-end/src/environments/environment.ts",
+                  "with": "apps/books-back-end/src/environments/environment.prod.ts"
+                }
+              ]
             }
           }
         },
@@ -357,6 +362,34 @@
             "tsConfig": "libs/book-back-end-helpers/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/book-back-end-helpers/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "author-model": {
+      "projectType": "library",
+      "root": "libs/author-model",
+      "sourceRoot": "libs/author-model/src",
+      "prefix": "maewnams-cafe",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/author-model/tsconfig.lib.json",
+              "libs/author-model/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/author-model/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/author-model/jest.config.js",
+            "tsConfig": "libs/author-model/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/author-model/src/test-setup.ts"
           }
         }
       },

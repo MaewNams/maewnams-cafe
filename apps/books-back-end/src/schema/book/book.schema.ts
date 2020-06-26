@@ -9,6 +9,10 @@ export function validateResponseBooks<T>(data: T): T {
   return validateArray(bookObjectValidate, data);
 }
 
+export function validateResponseBook<T>(data: T): T {
+  return validate(bookObjectValidate, data);
+}
+
 export function validateResponseBookInfo<T>(data: T): T {
   return validate(bookInfoObjectValidate, data);
 }

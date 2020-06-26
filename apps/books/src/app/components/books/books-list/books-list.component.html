@@ -1,0 +1,11 @@
+<div class="book-list">
+  <div class="title">These are books in MaewnamS cafe !</div>
+  <div class="mybook-title">
+    Books I liked:
+    <div *ngFor="let book of likedBooks">
+      {{book}}
+    </div>
+  </div>
+  <maewnams-cafe-books-book *ngFor="let book of books" [book]="book" (liked)="onLiked($event) ">
+  </maewnams-cafe-books-book>
+</div>
